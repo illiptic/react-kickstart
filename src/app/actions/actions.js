@@ -1,5 +1,4 @@
 export function toggleDisplay() {
-	console.log('toggle');
 	return { type: 'TOGGLE_DISPLAY' };
 }
 

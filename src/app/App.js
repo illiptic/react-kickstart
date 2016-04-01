@@ -1,36 +1,22 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router'
 import { createSelector } from 'reselect'
 
-import { addToList, toggleDisplay } from './actions/exampleActions.js';
+import Header from './components/Header';
+
+import { addToList, toggleDisplay } from './actions/actions.js';
 
 class App extends Component{
   render() {
     // Injected by connect() call:
-    const { addItem, toggle, example, example2 } = this.props;
+    const { addItem, toggle, children, example, example2 } = this.props;
 
     let inputValue
     return (
-      <div>
-        <button onClick={e => toggle()}>
-          Toggle
-        </button>
-        <span style={{display: (example ? '' : 'none')}}>Hide me</span>
-        <hr />
-        <form onSubmit={e => {
-          e.preventDefault()
-          addItem(e.target)
-        }}>
-        <input type="text" name="itemText" />
-        <button type="submit">
-          Add
-        </button>
-        </form>
-        <ul>
-          {example2.map(item =>
-            <li key={item}>{item}</li>
-          )}
-        </ul>
+      <div className="container-fluid">
+        <Header></Header>
+        <div className="container">{children}</div>
       </div>
     )
   }
