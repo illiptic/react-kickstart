@@ -1,3 +1,7 @@
-# Fete de la musique
+# Install
 
-Website for the Music Festival in Geneva.
+npm i
+
+# Run
+
+npm start
